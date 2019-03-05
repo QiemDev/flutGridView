@@ -34,18 +34,18 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{ 
   }
 
   @override
-  Widget build(BuildContext context) {
-    tabController = new TabController(length: 2, vsync: this); //penambahan
+  Widget build(BuildContext context) {    
+    tabController = new TabController(length: 3, vsync: this); //penambahan
     var tabBarItem = new TabBar(
       tabs: <Widget>[
         new Tab(
           icon: new Icon(Icons.list),
         ),
         new Tab(
-          icon: new Icon(Icons.list),
+          icon: new Icon(Icons.grid_on),
         ),
         new Tab(
-          icon: new Icon(Icons.grid_on),
+          icon: new Icon(Icons.credit_card),
         ),
       ],
       controller: tabController,
@@ -137,8 +137,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{ 
       }
     );
 
-    return new DefaultTabController(
-      length: 2,
+        return new DefaultTabController(
+      length: 3,
       child: new Scaffold(
         appBar: new AppBar(
           title: new Text("TabBar"),
@@ -149,6 +149,29 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{ 
           children: <Widget>[
             listItem,
             gridView,
+            Center(
+              child: Card(
+                child:Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    const ListTile(
+                      leading: Icon(Icons.account_circle),
+                      title: Text("Kartu Nama"),
+                      subtitle: Text("Nama          : Ahmad Istaqiem Sy\nAlamat        : Griya Cibodas No. 31 / Jl. Cimahi-Soreang, Cimahi Selatan, Bandung \nPendidikan : UNSIQ Wonosobo (2018)"),
+                    ),
+                    ButtonTheme.bar(
+                      child: ButtonBar(
+                        children: <Widget>[
+                          FlatButton(
+                            child: const Text("OK!"),
+                            onPressed: (){
+                            },
+                        ),
+                      ],
+                    ),
+                    )
+                  ],
+                ),),)
           ],
         ),
       ),
